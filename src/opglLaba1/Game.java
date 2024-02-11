@@ -29,9 +29,9 @@ public class Game implements GLEventListener {
       gl.glTranslatef( 0f, 0f, -5.0f ); 
 
       // Rotate The Cube On X, Y & Z
-      gl.glRotatef(xrot, 1.0f, 1.0f, 1.0f); 
-      gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f); 
-      gl.glRotatef(zrot, 0.0f, 0.0f, 1.0f); 
+      gl.glRotatef(xrot, 0.0f, 1.0f, 0.0f); 
+      gl.glRotatef(yrot, 0.0f, 0.0f, 0.0f); 
+      gl.glRotatef(zrot, 0.0f, 0.0f, 0.0f); 
       
       gl.glBindTexture(GL2.GL_TEXTURE_2D, texture);
  
@@ -39,11 +39,11 @@ public class Game implements GLEventListener {
       gl.glBegin(GL2.GL_TRIANGLES); // Start Drawing The Cube
       gl.glColor3f(1f,0f,0f); //red color
       gl.glVertex3f(-0.30902f, -0.95106f, 0.0f); // Top Right Of The Quad (Top)
-      gl.glTexCoord2f(0.0f, 0.0f);
-      gl.glVertex3f( -1.0f, 0.0f, 0.0f); // Top Left Of The Quad (Top)
-      gl.glTexCoord2f(1.0f, 0.0f);
-      gl.glVertex3f( 0.0f, 0.0f, 2.0f ); // Bottom Left Of The Quad (Top)
       gl.glTexCoord2f(0.0f, 1.0f);
+      gl.glVertex3f( -1.0f, 0.0f, 0.0f); // Top Left Of The Quad (Top)
+      gl.glTexCoord2f(1.5f, 0.0f);
+      gl.glVertex3f( 0.0f, 0.0f, 2.0f ); // Bottom Left Of The Quad (Top)
+      gl.glTexCoord2f(0.0f, 0.0f);
       
 		
       gl.glColor3f( 0f,1f,0f ); //green color
@@ -94,7 +94,7 @@ public class Game implements GLEventListener {
       gl.glEnd(); // Done Drawing The Quad
       gl.glFlush();
 		
-      xrot += 0.2f;
+      xrot += 0.8f;
       yrot += 0.0f;
       zrot += 0.0f;
    }
@@ -118,7 +118,7 @@ public class Game implements GLEventListener {
       gl.glEnable(GL2.GL_TEXTURE_2D);
       
       try {
-    	  File im = new File("/home/tdds/javaExamles/opglLaba/sign.jpeg");
+    	  File im = new File("C:\\Users\\tdds\\javaExamples\\openGLLaba\\sign.jpeg");
     	  Texture t = TextureIO.newTexture(im,true);
     	  texture = t.getTextureObject(gl);
       }catch (IOException e) {
